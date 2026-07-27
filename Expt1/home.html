@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--URK24CS1040-->
+<!--Website Theme : Interior Design Studio-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interior Design Studio</title>
+
+    <style>
+        body {
+            background-color: #f8f5ef;
+            color: #2f3e2f;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar, .hero-section, .welcome-section, .project-section, .services-section, .contact-section {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            background-color: #fffdf8;
+        }
+
+        .navbar {
+            background-color: #1f4d3a;
+            color: white;
+        }
+
+        .navbar h1 {
+            color: #d4af37;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .navbar li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        .navbar a {
+            color: #f5e6a8;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            color: #ffd700;
+        }
+
+        h1, h2, h3, h4 {
+            color: #1f4d3a;
+        }
+
+        a {
+            color: #b8860b;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #8b6f1e;
+        }
+
+        img {
+            border: 3px solid #d4af37;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: white;
+        }
+
+        th {
+            background-color: #1f4d3a;
+            color: white;
+        }
+
+        th, td {
+            border: 1px solid #c8b273;
+            padding: 10px;
+            text-align: center;
+        }
+
+        dl, ol, ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        dt {
+            font-weight: bold;
+            color: #1f4d3a;
+        }
+
+        dd {
+            margin-bottom: 10px;
+        }
+
+        hr {
+            border: 1px solid #d4af37;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Section -->
+    <div class="navbar" id="top">
+        <h1>ZEN SPACES</h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="pages/gallery.html">Gallery</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="pages/about-us.html">About Us</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+        <hr>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section" id="home">
+        <h1>India's Most Trusted Interior Company</h1>
+        <h2>Crafting Elegant and Functional Interior Design</h2>
+        <h2>Kitchen | Bedroom | Living | Dining</h2>
+        <a href="https://github.com/praneettigga/web-tech-lab" target="_blank" rel="noopener noreferrer">
+            <img src="images/interior-1.jpg" alt="Modern Living Room Interior" width="300">
+        </a>
+        <p><a href="#projects">View Our Projects</a></p>
+        <hr>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="welcome-section" id="welcome">
+        <h3>Welcome to Zen Spaces</h3>
+        <h4>Welcome to our award winning Interior Design Studio</h4>
+        <p>
+            We specialize in creating stylish, innovative, and functional interiors that blend
+            creative aesthetics with practical design solutions.
+        </p>
+        <p>
+            Every space we design is thoughtfully crafted to reflect our clients’ personality and
+            lifestyle, while maintaining a modern and sophisticated look.
+        </p>
+        <p>
+            With a fresh perspective and high-end execution, we turn ideas into inspiring spaces.
+        </p>
+        <p>You can visit this website's GitHub at:</p>
+        <a href="https://github.com/praneettigga/web-tech-lab" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+
+    <!-- Project Section -->
+    <div class="project-section" id="projects">
+        <h3>Projects</h3>
+        <p>Here are some of our featured interior design projects.</p>
+
+        <table>
+            <tr>
+                <th>Project Image</th>
+                <th>Project Name</th>
+                <th>Room Type</th>
+                <th>Style</th>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://github.com/praneettigga/web-tech-lab" target="_blank" rel="noopener noreferrer">
+                        <img src="images/interior-1.jpg" alt="Modern living room interior project" width="200">
+                    </a>
+                </td>
+                <td>Urban Elegance</td>
+                <td>Living Room</td>
+                <td>Modern</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://github.com/praneettigga/web-tech-lab" target="_blank" rel="noopener noreferrer">
+                        <img src="images/interior-2.jpg" alt="Elegant bedroom interior project" width="200">
+                    </a>
+                </td>
+                <td>Serene Retreat</td>
+                <td>Bedroom</td>
+                <td>Minimalist</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://github.com/praneettigga/web-tech-lab" target="_blank" rel="noopener noreferrer">
+                        <img src="images/interior-3.jpg" alt="Contemporary dining room interior project" width="200">
+                    </a>
+                </td>
+                <td>Golden Feast</td>
+                <td>Dining Room</td>
+                <td>Contemporary</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Services and Design Details Section -->
+    <div class="services-section" id="services">
+        <h3>Our Services and Design Process</h3>
+        <p>Zen Spaces offers complete interior design solutions for modern homes and apartments.</p>
+
+        <dl>
+            <dt>Modular Kitchen</dt>
+            <dd>Smart kitchen layouts with modern cabinets, storage units, and elegant finishes.</dd>
+
+            <dt>Bedroom Interiors</dt>
+            <dd>Comfortable and stylish bedroom designs with wardrobes, lighting, and custom furniture.</dd>
+
+            <dt>Living Room Design</dt>
+            <dd>Beautiful living spaces designed for comfort, family interaction, and visual appeal.</dd>
+        </dl>
+
+        <ol>
+            <li>Design Consultation
+                <ol>
+                    <li>Understand client requirements</li>
+                    <li>Discuss budget and space planning</li>
+                </ol>
+            </li>
+            <li>Concept Development
+                <ol>
+                    <li>Create layout ideas</li>
+                    <li>Select materials and colors</li>
+                </ol>
+            </li>
+            <li>Execution
+                <ol>
+                    <li>Install furniture and decor</li>
+                    <li>Complete final finishing</li>
+                </ol>
+            </li>
+        </ol>
+
+        <ul>
+            <li>Rooms We Design
+                <ul>
+                    <li>Living Room</li>
+                    <li>Bedroom</li>
+                    <li>Dining Room</li>
+                </ul>
+            </li>
+            <li>Design Styles
+                <ul>
+                    <li>Modern</li>
+                    <li>Minimalist</li>
+                    <li>Contemporary</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contact-home">
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:customerservice@zenspaces.com">customerservice@zenspaces.com</a></p>
+        <p>Phone: <a href="tel:+9123456789">+91 23456 789</a></p>
+    </div>
+
+</body>
+</html>
