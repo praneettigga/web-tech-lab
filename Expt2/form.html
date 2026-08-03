@@ -50,12 +50,16 @@
         resize: vertical;
       }
 
-      fieldset {
+      .section-box {
         margin-bottom: 20px;
+        border: 1px solid #bbb;
+        padding: 12px;
       }
 
-      legend {
+      .section-title {
         font-weight: bold;
+        margin-bottom: 10px;
+        color: #003366;
       }
 
       .buttons {
@@ -74,8 +78,8 @@
       <h2>Student Registration Form</h2>
 
       <form>
-        <fieldset>
-          <legend>Personal Details</legend>
+        <div class="section-box">
+          <div class="section-title">Personal Details</div>
 
           <table>
             <tr>
@@ -124,10 +128,10 @@
               </td>
             </tr>
           </table>
-        </fieldset>
+        </div>
 
-        <fieldset>
-          <legend>Academic Details</legend>
+        <div class="section-box">
+          <div class="section-title">Academic Details</div>
 
           <table>
             <tr>
@@ -175,10 +179,10 @@
               <td><input type="url" placeholder="https://example.com" /></td>
             </tr>
           </table>
-        </fieldset>
+        </div>
 
-        <fieldset>
-          <legend>Additional Information</legend>
+        <div class="section-box">
+          <div class="section-title">Additional Information</div>
 
           <table>
             <tr>
@@ -235,7 +239,7 @@
               </td>
             </tr>
           </table>
-        </fieldset>
+        </div>
 
         <div class="buttons">
           <button type="submit">Register</button>
