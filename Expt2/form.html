@@ -1,15 +1,246 @@
-<!DOCTYPE html>
-<!--URK24CS1040-->
-<!--Theme: Interior Design Studio-->
+<!doctype html>
+<html>
+  <head>
+    <title>Student Registration Form</title>
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>HTML Form</title>
-</head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+      }
 
-<body>
-    <h1>Student Registration Form</h1>
+      .container {
+        width: 700px;
+        margin: 30px auto;
+        background: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
 
-</body>
+      h2 {
+        text-align: center;
+        color: #003366;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      td {
+        padding: 8px;
+        vertical-align: top;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="number"],
+      input[type="date"],
+      input[type="tel"],
+      input[type="url"],
+      input[type="search"],
+      select,
+      textarea {
+        width: 95%;
+        padding: 6px;
+        border: 1px solid #999;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      fieldset {
+        margin-bottom: 20px;
+      }
+
+      legend {
+        font-weight: bold;
+      }
+
+      .buttons {
+        text-align: center;
+      }
+
+      button {
+        padding: 8px 18px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Student Registration Form</h2>
+
+      <form>
+        <fieldset>
+          <legend>Personal Details</legend>
+
+          <table>
+            <tr>
+              <td>Full Name</td>
+              <td>
+                <input type="text" placeholder="Enter your name" required />
+              </td>
+            </tr>
+
+            <tr>
+              <td>Register Number</td>
+              <td><input type="text" placeholder="URK24CS0000" /></td>
+            </tr>
+
+            <tr>
+              <td>Email</td>
+              <td><input type="email" required /></td>
+            </tr>
+
+            <tr>
+              <td>Password</td>
+              <td><input type="password" required /></td>
+            </tr>
+
+            <tr>
+              <td>Phone Number</td>
+              <td><input type="tel" placeholder="9876543210" /></td>
+            </tr>
+
+            <tr>
+              <td>Age</td>
+              <td><input type="number" min="17" max="30" /></td>
+            </tr>
+
+            <tr>
+              <td>Date of Birth</td>
+              <td><input type="date" /></td>
+            </tr>
+
+            <tr>
+              <td>Gender</td>
+              <td>
+                <input type="radio" name="gender" /> Male
+                <input type="radio" name="gender" /> Female
+                <input type="radio" name="gender" /> Other
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+
+        <fieldset>
+          <legend>Academic Details</legend>
+
+          <table>
+            <tr>
+              <td>Department</td>
+              <td>
+                <select>
+                  <option>CSE</option>
+                  <option>IT</option>
+                  <option>ECE</option>
+                  <option>EEE</option>
+                  <option>AIML</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Year</td>
+              <td>
+                <select>
+                  <option>1st Year</option>
+                  <option>2nd Year</option>
+                  <option>3rd Year</option>
+                  <option>4th Year</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Favorite Subject</td>
+              <td>
+                <input list="subjects" />
+
+                <datalist id="subjects">
+                  <option>Web Technology</option>
+                  <option>DBMS</option>
+                  <option>Operating Systems</option>
+                  <option>Computer Networks</option>
+                  <option>Java Programming</option>
+                </datalist>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Website</td>
+              <td><input type="url" placeholder="https://example.com" /></td>
+            </tr>
+          </table>
+        </fieldset>
+
+        <fieldset>
+          <legend>Additional Information</legend>
+
+          <table>
+            <tr>
+              <td>Skills</td>
+              <td>
+                <input type="checkbox" /> HTML <input type="checkbox" /> CSS
+                <input type="checkbox" /> JavaScript
+                <input type="checkbox" /> Python
+              </td>
+            </tr>
+
+            <tr>
+              <td>Resume</td>
+              <td><input type="file" /></td>
+            </tr>
+
+            <tr>
+              <td>Search Course</td>
+              <td><input type="search" /></td>
+            </tr>
+
+            <tr>
+              <td>Admission Month</td>
+              <td><input type="month" /></td>
+            </tr>
+
+            <tr>
+              <td>Interview Time</td>
+              <td><input type="time" /></td>
+            </tr>
+
+            <tr>
+              <td>Favorite Color</td>
+              <td><input type="color" /></td>
+            </tr>
+
+            <tr>
+              <td>Skill Level</td>
+              <td><input type="range" min="1" max="10" /></td>
+            </tr>
+
+            <tr>
+              <td>Address</td>
+              <td>
+                <textarea rows="4"></textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td>
+                <input type="checkbox" required />
+                I agree to the terms and conditions.
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+
+        <div class="buttons">
+          <button type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
