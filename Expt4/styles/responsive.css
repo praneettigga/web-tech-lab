@@ -1,0 +1,30 @@
+@media only screen and (max-width: 600px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .navbar li {
+        display: block;
+    }
+
+    .hero-section,
+    .welcome-section,
+    .project-section,
+    .services-section,
+    .contact-section,
+    .page-card {
+        margin: 12px;
+        padding: 16px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
