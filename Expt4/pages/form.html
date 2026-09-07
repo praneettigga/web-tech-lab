@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Book a Consultation | Zen Spaces</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/form.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+</head>
+
+<body>
+    <div class="navbar" id="top">
+        <h1>ZEN SPACES</h1>
+        <ul>
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a class="current-page" href="form.html">Consultation</a></li>
+        </ul>
+        <hr>
+    </div>
+
+    <div class="form-container">
+        <h2>Book a Design Consultation</h2>
+        <p>Tell us a little about your home and the space you would like to transform.</p>
+
+        <form class="consultation-form">
+            <div class="section-box">
+                <div class="section-title">Your Details</div>
+
+                <table>
+                    <tr>
+                        <td>Full Name</td>
+                        <td><input type="text" placeholder="Enter your name" required></td>
+                    </tr>
+                    <tr>
+                        <td>Project Reference</td>
+                        <td><input type="text" placeholder="ZS-2026-000"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" required></td>
+                    </tr>
+                    <tr>
+                        <td>Create Password</td>
+                        <td><input type="password" required></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td><input type="tel" placeholder="9876543210"></td>
+                    </tr>
+                    <tr>
+                        <td>Years in Your Home</td>
+                        <td><input type="number" min="0" max="100"></td>
+                    </tr>
+                    <tr>
+                        <td>Preferred Consultation Date</td>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td>Home Ownership</td>
+                        <td>
+                            <input type="radio" name="ownership"> Owner
+                            <input type="radio" name="ownership"> Tenant
+                            <input type="radio" name="ownership"> Other
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section-box">
+                <div class="section-title">Your Design Project</div>
+
+                <table>
+                    <tr>
+                        <td>Property Type</td>
+                        <td>
+                            <select>
+                                <option>Apartment</option>
+                                <option>Independent House</option>
+                                <option>Villa</option>
+                                <option>Office</option>
+                                <option>Retail Space</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Design Service</td>
+                        <td>
+                            <select>
+                                <option>Living Room</option>
+                                <option>Bedroom</option>
+                                <option>Kitchen</option>
+                                <option>Dining Room</option>
+                                <option>Complete Home</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Preferred Style</td>
+                        <td>
+                            <input list="styles" placeholder="Choose or type a style">
+                            <datalist id="styles">
+                                <option>Modern</option>
+                                <option>Minimalist</option>
+                                <option>Contemporary</option>
+                                <option>Scandinavian</option>
+                                <option>Classic</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Inspiration Link</td>
+                        <td><input type="url" placeholder="https://example.com"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section-box">
+                <div class="section-title">Additional Information</div>
+
+                <table>
+                    <tr>
+                        <td>Rooms to Design</td>
+                        <td>
+                            <input type="checkbox"> Living Room
+                            <input type="checkbox"> Bedroom
+                            <input type="checkbox"> Kitchen
+                            <input type="checkbox"> Dining Room
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Floor Plan</td>
+                        <td><input type="file"></td>
+                    </tr>
+                    <tr>
+                        <td>Search a Design Need</td>
+                        <td><input type="search" placeholder="Storage, lighting, furniture..."></td>
+                    </tr>
+                    <tr>
+                        <td>Preferred Completion Month</td>
+                        <td><input type="month"></td>
+                    </tr>
+                    <tr>
+                        <td>Preferred Consultation Time</td>
+                        <td><input type="time"></td>
+                    </tr>
+                    <tr>
+                        <td>Accent Colour</td>
+                        <td><input type="color"></td>
+                    </tr>
+                    <tr>
+                        <td>Project Size</td>
+                        <td><input type="range" min="1" max="10"></td>
+                    </tr>
+                    <tr>
+                        <td>Property Address</td>
+                        <td><textarea rows="4" placeholder="Enter your address"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="checkbox" required> I agree to be contacted by Zen Spaces about this enquiry.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="buttons">
+                <button type="submit">Request Consultation</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

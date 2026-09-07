@@ -2,12 +2,17 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
-    padding: 0;
+    padding: 20px;
     list-style: none;
 }
 
 .gallery-grid li {
     min-width: 0;
+    padding: 10px;
+    border: 1px solid #d8ccb4;
+    border-radius: 10px;
+    background: #fffdf8;
+    box-shadow: 0 4px 12px rgba(31, 77, 58, 0.08);
 }
 
 .gallery-grid img {

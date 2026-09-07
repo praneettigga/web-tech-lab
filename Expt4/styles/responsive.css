@@ -19,6 +19,10 @@
         padding: 16px;
     }
 
+    body > h1 {
+        margin: 20px 12px 0;
+    }
+
     table {
         display: block;
         overflow-x: auto;
@@ -26,5 +30,12 @@
 
     .gallery-grid {
         grid-template-columns: 1fr;
+        padding: 12px;
+    }
+
+    .form-container {
+        width: auto;
+        margin: 20px 12px;
+        padding: 16px;
     }
 }

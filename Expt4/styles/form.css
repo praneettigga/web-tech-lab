@@ -1,0 +1,79 @@
+.form-container {
+    width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #d8ccb4;
+    border-left: 5px solid #c5a56a;
+    border-radius: 10px;
+    background: #fffdf8;
+    box-shadow: 0 4px 12px rgba(31, 77, 58, 0.08);
+}
+
+.form-container h2 {
+    margin-top: 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #d8ccb4;
+}
+
+.consultation-form table {
+    width: 100%;
+}
+
+.consultation-form td {
+    padding: 8px;
+    vertical-align: top;
+}
+
+.consultation-form input[type="text"],
+.consultation-form input[type="email"],
+.consultation-form input[type="password"],
+.consultation-form input[type="number"],
+.consultation-form input[type="date"],
+.consultation-form input[type="tel"],
+.consultation-form input[type="url"],
+.consultation-form input[type="search"],
+.consultation-form select,
+.consultation-form textarea {
+    width: 95%;
+    padding: 6px;
+    border: 1px solid #b8a98a;
+    border-radius: 4px;
+    background: #fffdf8;
+    color: #314339;
+    font-family: Georgia, serif;
+}
+
+.consultation-form textarea {
+    resize: vertical;
+}
+
+.section-box {
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #d8ccb4;
+    background: #f8f5ef;
+}
+
+.section-title {
+    margin-bottom: 10px;
+    color: #244232;
+    font-weight: bold;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 8px 18px;
+    border: 1px solid #244232;
+    border-radius: 4px;
+    background: #244232;
+    color: #fffaf0;
+    font-family: Georgia, serif;
+}
+
+button:hover {
+    background: #496b55;
+}

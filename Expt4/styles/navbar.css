@@ -1,21 +1,23 @@
 .navbar {
-    margin: 20px;
+    margin: 0;
     padding: 20px;
-    border-radius: 18px;
-    border: 12px solid transparent;
-    border-image: linear-gradient(135deg, #d4af37, #1f4d3a) 1;
-    background: #1f4d3a;
+    border-bottom: 4px solid #c5a56a;
+    background: #244232;
     color: white;
-    box-shadow: 0 8px 24px rgba(31, 77, 58, 0.12);
+    box-shadow: 0 4px 12px rgba(31, 77, 58, 0.12);
 }
 
 .navbar h1,
 .navbar a {
-    color: #f5e6a8;
+    color: #fffaf0;
 }
 
 .navbar a:hover {
-    color: #ffd700;
+    color: #e2c98e;
+}
+
+.navbar a.current-page {
+    color: #e2c98e;
 }
 
 .navbar ul {
@@ -29,4 +31,9 @@
 
 .navbar li {
     margin-right: 0;
+}
+
+.navbar hr {
+    border: 0;
+    border-top: 1px solid #708573;
 }
