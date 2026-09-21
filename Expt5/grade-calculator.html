@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Grade Calculator</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="calculator-card">
+        <p class="eyebrow">Web Tech Lab · Experiment 5</p>
+        <h1>Student Grade Calculator</h1>
+        <p class="intro">Enter marks out of 100 for five subjects.</p>
+
+        <form id="grade-form">
+          <div class="input-grid">
+            <label>Subject 1<input type="number" name="mark" min="0" max="100" required /></label>
+            <label>Subject 2<input type="number" name="mark" min="0" max="100" required /></label>
+            <label>Subject 3<input type="number" name="mark" min="0" max="100" required /></label>
+            <label>Subject 4<input type="number" name="mark" min="0" max="100" required /></label>
+            <label>Subject 5<input type="number" name="mark" min="0" max="100" required /></label>
+          </div>
+          <button type="submit">Calculate Grade</button>
+        </form>
+
+        <div id="grade-result" class="result" aria-live="polite" hidden></div>
+        <a class="back-link" href="index.html">← View BMI Calculator</a>
+      </section>
+    </main>
+    <script src="js/grade.js"></script>
+  </body>
+</html>

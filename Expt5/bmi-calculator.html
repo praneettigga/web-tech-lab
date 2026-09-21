@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="calculator-card">
+        <p class="eyebrow">Web Tech Lab · Experiment 5</p>
+        <h1>BMI Calculator</h1>
+        <p class="intro">Find your Body Mass Index using your height and weight.</p>
+
+        <form id="bmi-form">
+          <div class="input-grid two-columns">
+            <label>Height (cm)<input id="height" type="number" min="1" step="0.1" placeholder="e.g. 170" required /></label>
+            <label>Weight (kg)<input id="weight" type="number" min="1" step="0.1" placeholder="e.g. 65" required /></label>
+          </div>
+          <button type="submit">Calculate BMI</button>
+        </form>
+
+        <div id="bmi-result" class="result" aria-live="polite" hidden></div>
+        <a class="back-link" href="index.html">← View Grade Calculator</a>
+      </section>
+    </main>
+    <script src="js/bmi.js"></script>
+  </body>
+</html>
