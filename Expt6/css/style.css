@@ -1,0 +1,71 @@
+:root {
+  --ink: #314339;
+  --heading: #244232;
+  --accent: #c5a56a;
+  --link: #496b55;
+  --border: #d8ccb4;
+  --surface: #fffdf8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 30px 20px;
+  color: var(--ink);
+  font-family: Georgia, serif;
+  background: #f4f0e7;
+}
+
+.page-shell { width: min(100%, 700px); margin: 0 auto; }
+
+.tracker-card {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--accent);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 4px 12px rgba(31, 77, 58, 0.08);
+}
+
+h1 { margin: 0; padding-bottom: 10px; border-bottom: 2px solid var(--border); color: var(--heading); font-size: 2rem; }
+.intro { margin: 16px 0 24px; line-height: 1.5; }
+
+#taskForm { display: flex; gap: 10px; }
+input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #b8a98a;
+  border-radius: 4px;
+  color: var(--ink);
+  font: inherit;
+  background: var(--surface);
+}
+input:focus { outline: 2px solid #e2c98e; border-color: var(--link); }
+
+button {
+  padding: 8px 18px;
+  border: 1px solid var(--heading);
+  border-radius: 4px;
+  color: #fffaf0;
+  background: var(--heading);
+  cursor: pointer;
+  font: 1rem Georgia, serif;
+}
+button:hover { background: var(--link); }
+
+.filters { display: flex; gap: 8px; margin-top: 20px; }
+.filter { padding: 6px 14px; color: var(--heading); background: #f8f5ef; border-color: var(--border); font-size: 0.9rem; }
+.filter:hover { background: #e7ede4; }
+.filter.active { color: #fffaf0; background: var(--heading); border-color: var(--heading); }
+
+ul { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+li { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 4px; background: #f8f5ef; }
+li span { flex: 1; line-height: 1.4; }
+li.done span { color: #8a9a8f; text-decoration: line-through; }
+li input[type="checkbox"] { flex: none; width: 18px; height: 18px; accent-color: var(--heading); }
+li .delete { margin: 0; padding: 4px 10px; color: var(--heading); background: transparent; border-color: var(--border); font-size: 0.85rem; }
+li .delete:hover { color: #fffaf0; background: #8a3b32; border-color: #8a3b32; }
+
+.counter { margin: 18px 0 0; font-weight: bold; color: var(--heading); }

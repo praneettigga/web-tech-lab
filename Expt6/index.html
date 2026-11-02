@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="tracker-card">
+        <h1>Task Tracker</h1>
+        <p class="intro">Add a task, tick it off, or delete it.</p>
+
+        <form id="taskForm">
+          <input id="taskInput" type="text" placeholder="What needs doing?" autocomplete="off" />
+          <button type="submit">Add</button>
+        </form>
+
+        <div class="filters">
+          <button type="button" class="filter active" data-filter="all">All</button>
+          <button type="button" class="filter" data-filter="open">Open</button>
+          <button type="button" class="filter" data-filter="done">Finished</button>
+        </div>
+
+        <ul id="taskList"></ul>
+        <p id="counter" class="counter" aria-live="polite"></p>
+      </section>
+    </main>
+    <script src="js/app.js"></script>
+  </body>
+</html>
