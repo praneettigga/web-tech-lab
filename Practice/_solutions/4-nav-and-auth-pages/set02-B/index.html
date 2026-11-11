@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnHub - Sign In</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="logo">LearnHub</div>
+    <nav class="menu">
+      <a href="#">Courses</a>
+      <a href="#">Mentors</a>
+      <a href="#">Pricing</a>
+    </nav>
+    <div class="cta">
+      <a class="btn outline" href="#">Log in</a>
+      <a class="btn" href="#">Free Trial</a>
+    </div>
+  </header>
+
+  <main class="card">
+    <div class="tabs">
+      <button class="tab active" data-target="signin">Sign In</button>
+      <button class="tab" data-target="signup">Sign Up</button>
+    </div>
+
+    <form id="signin" class="panel active">
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button class="btn" type="submit">Sign In</button>
+    </form>
+
+    <form id="signup" class="panel">
+      <input type="text" placeholder="Full name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" minlength="6" required>
+      <button class="btn" type="submit">Create Account</button>
+    </form>
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.panel');
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    }));
+  </script>
+</body>
+</html>

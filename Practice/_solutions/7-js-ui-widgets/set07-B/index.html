@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Switcher</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1f2937;
+      --toggle-bg: #cbd5e1;
+    }
+    [data-theme="dark"] {
+      --bg: #111827;
+      --text: #f3f4f6;
+      --toggle-bg: #4f46e5;
+    }
+    body {
+      margin: 0; padding: 2rem; font-family: Georgia, serif;
+      background: var(--bg); color: var(--text);
+      transition: background-color .5s ease, color .5s ease;
+    }
+    .toggle {
+      width: 64px; height: 32px; border-radius: 16px; border: none;
+      background: var(--toggle-bg); position: relative; cursor: pointer;
+      transition: background-color .4s;
+    }
+    .toggle .knob {
+      position: absolute; top: 3px; left: 3px; width: 26px; height: 26px;
+      border-radius: 50%; background: #fff; transition: transform .4s;
+      display: flex; align-items: center; justify-content: center; font-size: 14px;
+    }
+    [data-theme="dark"] .toggle .knob { transform: translateX(32px); }
+  </style>
+</head>
+<body>
+  <button class="toggle" id="toggle" aria-label="Toggle theme"><span class="knob" id="icon">&#9728;</span></button>
+  <h1>My Blog</h1>
+  <p>Flip the switch to change the theme. Colours come from CSS custom properties.</p>
+
+  <script>
+    const root = document.documentElement;
+    const icon = document.getElementById('icon');
+
+    function setTheme(t) {
+      root.setAttribute('data-theme', t);
+      icon.innerHTML = t === 'dark' ? '&#9790;' : '&#9728;';
+      try { localStorage.setItem('theme', t); } catch (e) {}
+    }
+
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    setTheme(saved || 'light');
+
+    document.getElementById('toggle').addEventListener('click', () => {
+      setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; color: #222; }
+
+.nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 2rem; background: #1e293b; color: #fff;
+}
+.nav nav a { color: #fff; margin-left: 1.2rem; text-decoration: none; }
+.nav nav a:hover { text-decoration: underline; }
+
+.hero {
+  text-align: center; padding: 4rem 1rem;
+  background: linear-gradient(135deg, #2563eb, #7c3aed); color: #fff;
+}
+.hero p { margin: 1rem 0 1.5rem; }
+.btn {
+  display: inline-block; padding: .7rem 1.6rem; background: #fff; color: #2563eb;
+  border-radius: 6px; text-decoration: none; font-weight: 600;
+}
+
+/* Desktop: 3 columns */
+.grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; padding: 2rem;
+}
+.card { padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.card h3 { margin-bottom: .5rem; }
+
+footer { text-align: center; padding: 1.5rem; background: #f1f5f9; }
+
+/* Tablet: 2 columns */
+@media (max-width: 992px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .nav { flex-direction: column; gap: .5rem; }
+}

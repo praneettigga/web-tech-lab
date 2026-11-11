@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Conference Registration</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
+    fieldset { margin-bottom: 1rem; }
+    label { display: block; margin-top: .6rem; }
+  </style>
+</head>
+<body>
+  <h1>Tech Conference Registration</h1>
+  <form action="#" method="post">
+    <fieldset>
+      <legend>Personal Details</legend>
+      <label>Full name
+        <input type="text" name="name" required minlength="3">
+      </label>
+      <label>Email
+        <input type="email" name="email" required>
+      </label>
+      <label>Phone (10 digits)
+        <input type="tel" name="phone" pattern="[0-9]{10}" title="Enter 10 digits" required>
+      </label>
+      <label>Website / Portfolio
+        <input type="url" name="site" placeholder="https://example.com">
+      </label>
+      <label>Date of birth
+        <input type="date" name="dob" max="2008-12-31" required>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Conference Details</legend>
+      <label>Tickets (1-5)
+        <input type="number" name="tickets" min="1" max="5" value="1" required>
+      </label>
+      <label>Experience level: <output id="lvl">5</output>/10
+        <input type="range" name="exp" min="0" max="10" value="5"
+               oninput="document.getElementById('lvl').textContent = this.value">
+      </label>
+      <label>Preferred tech track
+        <input list="tracks" name="track" required>
+        <datalist id="tracks">
+          <option value="Web Development">
+          <option value="Artificial Intelligence">
+          <option value="Cloud &amp; DevOps">
+          <option value="Cyber Security">
+          <option value="Data Science">
+        </datalist>
+      </label>
+    </fieldset>
+
+    <button type="submit">Register</button>
+    <button type="reset">Reset</button>
+  </form>
+</body>
+</html>
