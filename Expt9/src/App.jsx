@@ -6,12 +6,13 @@ const Header = ({ theme, toggleTheme, userName }) => {
   return (
     <header className="app-header">
       <div className="brand">
-        <h2>⚡ ModernUI Dashboard</h2>
+        <h2>ModernUI</h2>
+        <span className="brand-sub">Dashboard</span>
       </div>
       <div className="header-actions">
-        <span>Welcome, <strong>{userName}</strong></span>
+        <span><span className="welcome">Welcome, <strong>{userName}</strong></span></span>
         <button className="theme-toggle-btn" onClick={toggleTheme}>
-          {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+          {theme === "light" ? "Dark mode" : "Light mode"}
         </button>
       </div>
     </header>
@@ -115,21 +116,21 @@ export default function App() {
             value="$48,250"
             change="14.2%"
             isPositive={true}
-            icon="💼"
+            icon="01"
           />
           <StatCard
             title="Active Sessions"
             value="2,840"
             change="8.6%"
             isPositive={true}
-            icon="👥"
+            icon="02"
           />
           <StatCard
             title="Bounce Rate"
             value="21.4%"
             change="2.1%"
             isPositive={false}
-            icon="📉"
+            icon="03"
           />
         </section>
 
@@ -137,7 +138,7 @@ export default function App() {
           <form className="task-form" onSubmit={handleAddTask}>
             <input
               type="text"
-              placeholder="Add a new milestone..."
+              placeholder="Add a new milestone"
               value={taskInput}
               onChange={(e) => setTaskInput(e.target.value)}
             />
