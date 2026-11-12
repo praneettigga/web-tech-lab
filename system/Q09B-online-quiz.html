@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q9B - Online Quiz</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: linear-gradient(135deg, #0ea5e9, #6366f1);
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+      }
+      .box {
+        width: 100%;
+        max-width: 480px;
+        background: #fff;
+        padding: 1.5rem 2rem;
+        border-radius: 16px;
+        box-shadow: 0 12px 32px #0003;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        color: #6b7280;
+      }
+      h2 {
+        color: #1e293b;
+      }
+      .opt {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 0.8rem 1rem;
+        margin: 0.5rem 0;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        background: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .opt:hover:not(:disabled) {
+        border-color: #6366f1;
+        background: #eef2ff;
+      }
+      .opt.right {
+        background: #bbf7d0;
+        border-color: #22c55e;
+      }
+      .opt.wrong {
+        background: #fecaca;
+        border-color: #ef4444;
+      }
+      #next {
+        width: 100%;
+        padding: 0.8rem;
+        border: 0;
+        border-radius: 10px;
+        background: #4f46e5;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 0.8rem;
+        display: none;
+      }
+      .result {
+        text-align: center;
+      }
+      .result h2 {
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box">
+      <div class="top">
+        <span id="num"></span>
+        <span>
+          Score:
+          <b id="score">0</b>
+        </span>
+      </div>
+      <h2 id="q"></h2>
+      <div id="opts"></div>
+      <button id="next">Next</button>
+    </div>
+    <script>
+      const qs = [
+        {
+          q: "What does HTML stand for?",
+          o: [
+            "HyperText Markup Language",
+            "High Tech Modern Language",
+            "Hyper Transfer Markup Link",
+          ],
+          a: 0,
+        },
+        {
+          q: "Which CSS property changes text colour?",
+          o: ["font-style", "color", "text-size"],
+          a: 1,
+        },
+        {
+          q: "Which method adds an event listener?",
+          o: ["addEventListener", "attachClick", "onEvent"],
+          a: 0,
+        },
+        { q: "Which keyword declares a constant in JS?", o: ["var", "let", "const"], a: 2 },
+      ];
+      let i = 0,
+        score = 0;
+      const $ = (id) => document.getElementById(id);
+      function show() {
+        $("num").textContent = `Question ${i + 1}/${qs.length}`;
+        $("q").textContent = qs[i].q;
+        $("next").style.display = "none";
+        $("opts").innerHTML = "";
+        qs[i].o.forEach((t, k) => {
+          const b = document.createElement("button");
+          b.className = "opt";
+          b.textContent = t;
+          b.onclick = () => pick(k);
+          $("opts").appendChild(b);
+        });
+      }
+      function pick(k) {
+        const bs = [...document.querySelectorAll(".opt")];
+        bs.forEach((b) => (b.disabled = true));
+        bs[qs[i].a].classList.add("right");
+        if (k == qs[i].a) {
+          score++;
+          $("score").textContent = score;
+        } else bs[k].classList.add("wrong");
+        $("next").textContent = i == qs.length - 1 ? "See result" : "Next";
+        $("next").style.display = "block";
+      }
+      $("next").onclick = () => {
+        if (++i < qs.length) return show();
+        $("box").innerHTML =
+          `<div class="result"><h2>You scored ${score}/${qs.length}</h2><p>${score == qs.length ? "Perfect!" : score >= 2 ? "Good job!" : "Keep practising."}</p><button class="opt" onclick="location.reload()">Retry</button></div>`;
+      };
+      show();
+    </script>
+  </body>
+</html>

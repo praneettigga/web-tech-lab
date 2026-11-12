@@ -3,19 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Grade Performance Evaluator</title>
+  <title>Student Grade Evaluator</title>
   <style>
-    /* TODO: styles */
+    body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; }
+    label { display: block; margin: .4rem 0; }
+    table { border-collapse: collapse; margin-top: 1.5rem; width: 100%; }
+    th, td { border: 1px solid #888; padding: 6px 10px; text-align: center; }
+    th { background: #eee; }
+    #error { color: red; }
   </style>
 </head>
 <body>
-<!-- TODO: Inputs: student name, 5 subject marks -->
-<!-- TODO: JS computes total, percentage, letter grade -->
-<!-- TODO: New result row appended to an HTML table each time -->
-<!-- TODO: Basic input validation (0-100) -->
+  <h1>Student Grade Performance Evaluator</h1>
+  <form id="form">
+    <label>Student name <input type="text" id="name" required></label>
+    <label>Subject 1 <input type="number" class="mark" min="0" max="100" required></label>
+    <label>Subject 2 <input type="number" class="mark" min="0" max="100" required></label>
+    <label>Subject 3 <input type="number" class="mark" min="0" max="100" required></label>
+    <label>Subject 4 <input type="number" class="mark" min="0" max="100" required></label>
+    <label>Subject 5 <input type="number" class="mark" min="0" max="100" required></label>
+    <button type="submit">Evaluate</button>
+    <p id="error"></p>
+  </form>
+
+  <p id="result"></p>
 
   <script>
-    // TODO: logic
+    function gradeFor(p) {
+      if (p >= 90) return 'A+';
+      if (p >= 80) return 'A';
+      if (p >= 70) return 'B';
+      if (p >= 60) return 'C';
+      if (p >= 50) return 'D';
+      return 'F';
+    }
+
+    document.getElementById('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const marks = [...document.querySelectorAll('.mark')].map(m => Number(m.value));
+      const err = document.getElementById('error');
+
+      if (marks.some(m => isNaN(m) || m < 0 || m > 100)) {
+        err.textContent = 'Marks must be between 0 and 100.';
+        return;
+      }
+      err.textContent = '';
+
+      const total = marks.reduce((a, b) => a + b, 0);
+      const percentage = total / marks.length;
+
+      document.getElementById('result').textContent =
+        name + ': total ' + total + '/500, ' + percentage.toFixed(2) + '%, grade ' + gradeFor(percentage);
+      this.reset();
+    });
   </script>
 </body>
 </html>

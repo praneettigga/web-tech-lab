@@ -5,17 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bill & Tip Split Calculator</title>
   <style>
-    /* TODO: styles */
+    body { font-family: sans-serif; max-width: 500px; margin: 2rem auto; }
+    label { display: block; margin: .6rem 0; }
+    #error { color: red; }
+    #output p { margin: .3rem 0; }
   </style>
 </head>
 <body>
-<!-- TODO: Inputs: total bill, tip %, number of people -->
-<!-- TODO: Shows total tip, total with tip, per-person amount -->
-<!-- TODO: Updates on button click and on input change -->
-<!-- TODO: Guards against 0 people / empty input -->
+  <h1>Bill & Tip Split</h1>
+
+  <label>Total bill <input type="number" id="bill" min="0"></label>
+  <label>Tip % <input type="number" id="tip" min="0" value="10"></label>
+  <label>Number of people <input type="number" id="people" min="1" value="1"></label>
+  <button id="calc">Calculate</button>
+
+  <p id="error"></p>
+  <div id="output"></div>
 
   <script>
-    // TODO: logic
+    const bill = document.getElementById('bill');
+    const tip = document.getElementById('tip');
+    const people = document.getElementById('people');
+    const error = document.getElementById('error');
+    const output = document.getElementById('output');
+
+    function calculate() {
+      const b = parseFloat(bill.value);
+      const t = parseFloat(tip.value);
+      const n = parseInt(people.value);
+
+      // guard against empty / bad input
+      if (isNaN(b) || isNaN(t) || isNaN(n) || b < 0 || t < 0 || n < 1) {
+        error.textContent = 'Enter a bill, a tip % and at least 1 person.';
+        output.innerHTML = '';
+        return;
+      }
+      error.textContent = '';
+
+      const tipAmount = b * t / 100;
+      const total = b + tipAmount;
+      const perPerson = total / n;
+
+      output.innerHTML =
+        '<p>Total tip: ' + tipAmount.toFixed(2) + '</p>' +
+        '<p>Total with tip: ' + total.toFixed(2) + '</p>' +
+        '<p>Per person: ' + perPerson.toFixed(2) + '</p>';
+    }
+
+    document.getElementById('calc').addEventListener('click', calculate);
+    // also update when any input changes
+    [bill, tip, people].forEach(function (el) {
+      el.addEventListener('input', calculate);
+    });
   </script>
 </body>
 </html>

@@ -1,1 +1,94 @@
-/* TODO: write your styles here */
+/* ---------- Reset ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* ---------- Header & Footer ---------- */
+.site-header,
+.site-footer {
+  background: #0f172a;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.site-header a {
+  color: inherit;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.site-footer {
+  text-align: center;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.btn {
+
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: #fff;
+  color: #2563eb;
+  text-decoration: none;
+  border-radius: 99px;
+}
+
+/* ---------- Features ---------- */
+.features {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.features h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Desktop: 3 columns */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+
+.card {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+/* ---------- Responsive ---------- */
+
+/* Tablet: 2 columns */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

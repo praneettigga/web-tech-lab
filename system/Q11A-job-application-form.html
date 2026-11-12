@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q11A - Job Application Form</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #fef3c7;
+        margin: 0;
+        padding: 2rem 1rem;
+      }
+      form {
+        max-width: 520px;
+        margin: auto;
+        background: #fff;
+        padding: 1.5rem 2rem;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px #0002;
+      }
+      h1 {
+        margin-top: 0;
+        color: #b45309;
+      }
+      label {
+        display: block;
+        margin: 0.8rem 0 0.2rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #374151;
+      }
+      input,
+      textarea,
+      button {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.6rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+      }
+      input:focus,
+      textarea:focus {
+        outline: 2px solid #f59e0b;
+        border-color: transparent;
+      }
+      small {
+        color: #6b7280;
+      }
+      button {
+        background: #d97706;
+        color: #fff;
+        border: 0;
+        margin-top: 1.2rem;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      button:hover {
+        background: #b45309;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h1>Apply Now</h1>
+      <label>Full name</label>
+      <input required />
+      <label>Phone (10 digits)</label>
+      <input type="tel" required pattern="[6-9][0-9]{9}" title="10-digit Indian mobile number" />
+      <label>Resume (PDF only)</label>
+      <input type="file" accept=".pdf" required />
+      <label>
+        Experience:
+        <output id="o">2</output>
+        years
+      </label>
+      <input type="range" min="0" max="20" value="2" oninput="o.value = this.value" />
+      <label>Why should we hire you?</label>
+      <textarea id="t" rows="4" maxlength="200" required></textarea>
+      <small>
+        <span id="c">200</span>
+        characters left
+      </small>
+      <button>Submit Application</button>
+    </form>
+    <script>
+      t.addEventListener("input", () => (c.textContent = 200 - t.value.length));
+    </script>
+  </body>
+</html>

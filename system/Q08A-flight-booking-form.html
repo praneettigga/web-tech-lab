@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q8A - Flight Ticket Booking</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: linear-gradient(135deg, #0ea5e9, #2563eb);
+        margin: 0;
+        padding: 2rem 1rem;
+      }
+      form {
+        max-width: 520px;
+        margin: auto;
+        background: #fff;
+        padding: 1.5rem 2rem;
+        border-radius: 14px;
+        box-shadow: 0 10px 30px #0003;
+      }
+      h1 {
+        margin-top: 0;
+        color: #1d4ed8;
+      }
+      label.t {
+        display: block;
+        margin: 0.8rem 0 0.2rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #374151;
+      }
+      input:not([type="radio"]),
+      select,
+      button {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.6rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+      input:focus,
+      select:focus {
+        outline: 2px solid #3b82f6;
+        border-color: transparent;
+      }
+      .row {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .row label {
+        font-weight: 400;
+      }
+      button {
+        background: #1d4ed8;
+        color: #fff;
+        border: 0;
+        margin-top: 1.2rem;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      button:hover {
+        background: #1e40af;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h1>Book a Flight</h1>
+      <label class="t">Trip type</label>
+      <div class="row">
+        <label>
+          <input type="radio" name="trip" checked />
+          One-way
+        </label>
+        <label>
+          <input type="radio" name="trip" />
+          Round-trip
+        </label>
+      </div>
+      <label class="t">From</label>
+      <input list="airports" required placeholder="Departure airport" />
+      <label class="t">To</label>
+      <input list="airports" required placeholder="Destination airport" />
+      <datalist id="airports">
+        <option value="DEL - Delhi"></option>
+        <option value="BOM - Mumbai"></option>
+        <option value="BLR - Bengaluru"></option>
+        <option value="MAA - Chennai"></option>
+        <option value="DXB - Dubai"></option>
+      </datalist>
+      <label class="t">Departure date</label>
+      <input type="date" id="d" required />
+      <label class="t">Passengers (1-9)</label>
+      <input type="number" min="1" max="9" value="1" required />
+      <label class="t">Seat</label>
+      <select>
+        <option>Window</option>
+        <option>Aisle</option>
+        <option>Middle</option>
+      </select>
+      <button>Search Flights</button>
+    </form>
+    <script>
+      // allow booking from today up to 1 year ahead
+      const d = document.getElementById("d"),
+        t = new Date(),
+        y = new Date();
+      y.setFullYear(t.getFullYear() + 1);
+      d.min = t.toISOString().split("T")[0];
+      d.max = y.toISOString().split("T")[0];
+    </script>
+  </body>
+</html>

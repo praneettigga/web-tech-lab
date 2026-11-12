@@ -1,1 +1,60 @@
-/* TODO: write your styles here */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: sans-serif; background: #f3f5fb; }
+
+/* Flexbox nav */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: #1e2a5a;
+  color: white;
+}
+nav ul { display: flex; gap: 20px; list-style: none; }
+nav a { color: white; text-decoration: none; }
+nav a:hover { color: orange; }
+.logo { margin: 0; font-size: 1.4rem; }
+
+/* Buttons (works on <a> and <button>) */
+.btn, nav a.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: orange;
+  color: black;
+  cursor: pointer;
+}
+.btn:hover, nav a.btn:hover { background: darkorange; color: black; }
+
+main { max-width: 400px; margin: 40px auto; }
+
+/* Tabs (links between pages) */
+.tabs { display: flex; }
+.tabs a {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  background: #dde;
+}
+.tabs a:hover { background: #ccd; }
+.tabs a.active { background: white; font-weight: bold; }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  background: white;
+}
+
+/* Inputs */
+input {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+}
+input:hover { border-color: #889; }
+input:focus { outline: none; border-color: #1e2a5a; }

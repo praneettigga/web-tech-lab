@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q16B - Bill &amp; Tip Split</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: linear-gradient(135deg, #f59e0b, #ef4444);
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+      }
+      .box {
+        width: 100%;
+        max-width: 400px;
+        background: #fff;
+        padding: 1.5rem 2rem;
+        border-radius: 16px;
+        box-shadow: 0 12px 32px #0003;
+      }
+      h1 {
+        margin-top: 0;
+        color: #b45309;
+      }
+      label {
+        display: block;
+        margin: 0.8rem 0 0.2rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #374151;
+      }
+      input {
+        width: 100%;
+        padding: 0.7rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+      input:focus {
+        outline: 2px solid #f59e0b;
+        border-color: transparent;
+      }
+      button {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 0.8rem;
+        border: 0;
+        border-radius: 8px;
+        background: #d97706;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #b45309;
+      }
+      #out {
+        margin-top: 1rem;
+        background: #fef3c7;
+        border-radius: 10px;
+        padding: 1rem;
+        line-height: 1.9;
+      }
+      #out.err {
+        background: #fee2e2;
+        color: #b91c1c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Bill &amp; Tip Split</h1>
+      <label>Total bill</label>
+      <input type="number" id="bill" min="0" step="0.01" />
+      <label>Tip %</label>
+      <input type="number" id="tip" value="10" min="0" />
+      <label>People</label>
+      <input type="number" id="ppl" value="1" min="1" />
+      <button id="go">Calculate</button>
+      <div id="out"></div>
+    </div>
+    <script>
+      const $ = (id) => document.getElementById(id),
+        out = $("out");
+      function calc() {
+        const bill = parseFloat($("bill").value),
+          tip = parseFloat($("tip").value) || 0,
+          ppl = parseInt($("ppl").value);
+        out.className = "";
+        if (isNaN(bill) || bill <= 0 || !ppl || ppl < 1) {
+          out.className = "err";
+          out.textContent = "Enter a bill amount and at least 1 person.";
+          return;
+        }
+        const t = (bill * tip) / 100,
+          total = bill + t;
+        out.innerHTML = `Tip: <b>${t.toFixed(2)}</b><br>Total with tip: <b>${total.toFixed(2)}</b><br>Per person: <b>${(total / ppl).toFixed(2)}</b>`;
+      }
+      $("go").onclick = calc;
+      ["bill", "tip", "ppl"].forEach((i) => $(i).addEventListener("input", calc));
+      calc();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q18B - SaaS Dashboard Login</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        background: #f1f5f9;
+        color: #0f172a;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #0f172a;
+        color: #fff;
+        padding: 0.9rem 1.5rem;
+        flex-wrap: wrap;
+        box-shadow: 0 4px 12px #0004;
+      }
+      nav .logo {
+        font-weight: 800;
+        font-size: 1.3rem;
+      }
+      .menu {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .menu a {
+        color: #cbd5e1;
+        text-decoration: none;
+      }
+      .menu a:hover {
+        color: #fff;
+      }
+      .burger {
+        display: none;
+        background: none;
+        border: 0;
+        color: #fff;
+        font-size: 1.6rem;
+        cursor: pointer;
+      }
+      .card {
+        max-width: 400px;
+        margin: 3rem auto;
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 12px 32px #0002;
+        overflow: hidden;
+      }
+      .tabs {
+        display: flex;
+        position: relative;
+      }
+      .tabs button {
+        flex: 1;
+        padding: 1rem;
+        border: 0;
+        background: none;
+        font-weight: 600;
+        cursor: pointer;
+        color: #64748b;
+      }
+      .tabs button.active {
+        color: #4f46e5;
+      }
+      .bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        height: 3px;
+        background: #4f46e5;
+        transition: transform 0.3s;
+      }
+      .panels {
+        display: flex;
+        width: 200%;
+        transition: transform 0.3s;
+      }
+      .panels.shift {
+        transform: translateX(-50%);
+      }
+      form {
+        width: 50%;
+        padding: 1.5rem;
+      }
+      input {
+        width: 100%;
+        padding: 0.7rem;
+        margin-bottom: 1rem;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+      input:focus {
+        outline: none;
+      }
+      input:valid:not(:placeholder-shown) {
+        border-color: #22c55e;
+      }
+      input:invalid:not(:placeholder-shown) {
+        border-color: #ef4444;
+      }
+      form button {
+        width: 100%;
+        padding: 0.8rem;
+        border: 0;
+        border-radius: 8px;
+        background: #4f46e5;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      form button:hover {
+        background: #4338ca;
+      }
+      @media (max-width: 600px) {
+        .burger {
+          display: block;
+        }
+        .menu {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          gap: 0.8rem;
+          padding-top: 1rem;
+        }
+        .menu.open {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <span class="logo">Metricly</span>
+      <button class="burger" id="burger">&#9776;</button>
+      <div class="menu" id="menu">
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">Docs</a>
+      </div>
+    </nav>
+    <div class="card">
+      <div class="tabs">
+        <button class="active">Sign In</button>
+        <button>Sign Up</button>
+        <div class="bar" id="bar"></div>
+      </div>
+      <div class="panels" id="panels" style="overflow: hidden">
+        <form>
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password (min 6)" minlength="6" required />
+          <button>Sign In</button>
+        </form>
+        <form>
+          <input placeholder="Full name" required minlength="3" />
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password (min 6)" minlength="6" required />
+          <button>Sign Up</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      burger.onclick = () => menu.classList.toggle("open");
+      const tabs = document.querySelectorAll(".tabs button");
+      tabs.forEach(
+        (t, i) =>
+          (t.onclick = () => {
+            tabs.forEach((x) => x.classList.remove("active"));
+            t.classList.add("active");
+            panels.classList.toggle("shift", i == 1);
+            bar.style.transform = `translateX(${i * 100}%)`;
+          }),
+      );
+      document.querySelectorAll("form").forEach((f) => (f.onsubmit = (e) => e.preventDefault()));
+    </script>
+  </body>
+</html>

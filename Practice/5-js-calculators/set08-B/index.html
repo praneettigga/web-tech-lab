@@ -5,17 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Real-Time Currency Converter</title>
   <style>
-    /* TODO: styles */
+    body { font-family: sans-serif; max-width: 500px; margin: 2rem auto; }
+    label { display: block; margin: .6rem 0; }
+    #result { margin-top: 1rem; font-size: 1.3rem; font-weight: bold; }
   </style>
 </head>
 <body>
-<!-- TODO: Amount input and target currency <select> -->
-<!-- TODO: Rates defined in a JS object -->
-<!-- TODO: Conversion runs on keyup and change events -->
-<!-- TODO: Result updated in the DOM without reload -->
+  <h1>Currency Converter</h1>
+  <p>Converts from USD.</p>
+
+  <label>Amount (USD) <input type="number" id="amount" min="0"></label>
+  <label>Convert to
+    <select id="currency">
+      <option value="INR">INR</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="JPY">JPY</option>
+    </select>
+  </label>
+
+  <p id="result"></p>
 
   <script>
-    // TODO: logic
+    // rates are per 1 USD
+    const rates = { INR: 83, EUR: 0.92, GBP: 0.79, JPY: 150 };
+
+    const amount = document.getElementById('amount');
+    const currency = document.getElementById('currency');
+    const result = document.getElementById('result');
+
+    function convert() {
+      const value = parseFloat(amount.value);
+      if (isNaN(value) || value < 0) {
+        result.textContent = '';
+        return;
+      }
+      const code = currency.value;
+      result.textContent = value + ' USD = ' + (value * rates[code]).toFixed(2) + ' ' + code;
+    }
+
+    amount.addEventListener('keyup', convert);
+    amount.addEventListener('change', convert);
+    currency.addEventListener('change', convert);
   </script>
 </body>
 </html>

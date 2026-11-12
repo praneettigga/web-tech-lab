@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q4B - Student Grade Evaluator</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: #eef2ff;
+        margin: 0;
+        padding: 2rem 1rem;
+        color: #1f2937;
+      }
+      .box {
+        max-width: 700px;
+        margin: auto;
+        background: #fff;
+        padding: 1.5rem 2rem;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px #0002;
+      }
+      h1 {
+        margin-top: 0;
+        color: #4338ca;
+      }
+      .marks {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 0.6rem;
+      }
+      input {
+        width: 100%;
+        padding: 0.6rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+      }
+      input:focus {
+        outline: 2px solid #6366f1;
+        border-color: transparent;
+      }
+      button {
+        width: 100%;
+        padding: 0.7rem;
+        border: 0;
+        border-radius: 8px;
+        background: #4f46e5;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #4338ca;
+      }
+      #err {
+        color: #dc2626;
+        min-height: 1.4rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+      th {
+        background: #4338ca;
+        color: #fff;
+      }
+      th,
+      td {
+        padding: 0.6rem;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Grade Evaluator</h1>
+      <input id="name" placeholder="Student name" />
+      <div class="marks">
+        <input type="number" class="m" placeholder="Subject 1" />
+        <input type="number" class="m" placeholder="Subject 2" />
+        <input type="number" class="m" placeholder="Subject 3" />
+        <input type="number" class="m" placeholder="Subject 4" />
+        <input type="number" class="m" placeholder="Subject 5" />
+      </div>
+      <p id="err"></p>
+      <button id="go">Evaluate</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Total</th>
+            <th>%</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <script>
+      const $ = (id) => document.getElementById(id),
+        marks = [...document.querySelectorAll(".m")];
+      $("go").onclick = () => {
+        const name = $("name").value.trim(),
+          vals = marks.map((m) => m.value);
+        if (!name || vals.some((v) => v === "" || v < 0 || v > 100)) {
+          $("err").textContent = "Enter a name and 5 marks between 0 and 100.";
+          return;
+        }
+        $("err").textContent = "";
+        const total = vals.reduce((a, b) => a + +b, 0),
+          pct = total / 5;
+        const grade =
+          pct >= 90
+            ? "A+"
+            : pct >= 80
+              ? "A"
+              : pct >= 70
+                ? "B"
+                : pct >= 60
+                  ? "C"
+                  : pct >= 50
+                    ? "D"
+                    : "F";
+        $("rows").insertAdjacentHTML(
+          "beforeend",
+          `<tr><td>${name}</td><td>${total}/500</td><td>${pct.toFixed(1)}</td><td><b>${grade}</b></td></tr>`,
+        );
+        $("name").value = "";
+        marks.forEach((m) => (m.value = ""));
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q11B - Checkout Modal</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f1f5f9;
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+      }
+      .cart {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px #0002;
+        text-align: center;
+      }
+      .btn {
+        padding: 0.8rem 2rem;
+        border: 0;
+        border-radius: 10px;
+        background: #16a34a;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: #15803d;
+      }
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: #0009;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.3s,
+          visibility 0.3s;
+      }
+      .overlay.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      .modal {
+        position: relative;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 16px;
+        width: 90%;
+        max-width: 380px;
+        transform: scale(0.7);
+        transition: transform 0.3s;
+      }
+      .overlay.show .modal {
+        transform: scale(1);
+      }
+      .x {
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        border: 0;
+        background: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #6b7280;
+      }
+      .x:hover {
+        color: #000;
+      }
+      input {
+        width: 100%;
+        padding: 0.7rem;
+        margin: 0.4rem 0;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cart">
+      <h2>Order Total: $129.99</h2>
+      <button class="btn" id="open">Proceed to Payment</button>
+    </div>
+    <div class="overlay" id="ov">
+      <div class="modal">
+        <button class="x" id="x">&times;</button>
+        <h2>Payment</h2>
+        <input placeholder="Name on card" />
+        <input placeholder="Card number" />
+        <button class="btn" style="width: 100%; margin-top: 0.6rem">Pay $129.99</button>
+      </div>
+    </div>
+    <script>
+      const ov = document.getElementById("ov");
+      const close = () => ov.classList.remove("show");
+      document.getElementById("open").onclick = () => ov.classList.add("show");
+      document.getElementById("x").onclick = close;
+      ov.onclick = (e) => {
+        if (e.target === ov) close();
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q7B - Theme Switcher</title>
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --text: #1e293b;
+        --card: #fff;
+        --accent: #6366f1;
+      }
+      [data-theme="dark"] {
+        --bg: #0f172a;
+        --text: #e2e8f0;
+        --card: #1e293b;
+        --accent: #a5b4fc;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 2rem 1rem;
+        transition:
+          background-color 0.4s,
+          color 0.4s;
+      }
+      .wrap {
+        max-width: 600px;
+        margin: auto;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      h1 {
+        color: var(--accent);
+        transition: color 0.4s;
+      }
+      .card {
+        background: var(--card);
+        padding: 1.5rem;
+        border-radius: 14px;
+        box-shadow: 0 4px 16px #0002;
+        margin-top: 1rem;
+        transition: background-color 0.4s;
+      }
+      .toggle {
+        width: 64px;
+        height: 32px;
+        border-radius: 32px;
+        border: 0;
+        background: #cbd5e1;
+        position: relative;
+        cursor: pointer;
+        transition: background-color 0.4s;
+      }
+      .knob {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 0.9rem;
+        transition: transform 0.4s;
+      }
+      [data-theme="dark"] .toggle {
+        background: #6366f1;
+      }
+      [data-theme="dark"] .knob {
+        transform: translateX(32px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <h1>Theme Switcher</h1>
+        <button class="toggle" id="t" aria-label="Toggle theme">
+          <span class="knob" id="k">&#9728;</span>
+        </button>
+      </div>
+      <div class="card">
+        <h2>Hello there</h2>
+        <p>
+          Click the toggle to switch between light and dark. Colours are driven by CSS variables.
+        </p>
+      </div>
+      <div class="card"><p>Every text and surface colour on this page updates smoothly.</p></div>
+    </div>
+    <script>
+      const root = document.documentElement;
+      document.getElementById("t").onclick = () => {
+        const dark = root.dataset.theme != "dark";
+        root.dataset.theme = dark ? "dark" : "light";
+        document.getElementById("k").innerHTML = dark ? "&#9790;" : "&#9728;";
+      };
+    </script>
+  </body>
+</html>

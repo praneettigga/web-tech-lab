@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q1B - Shopping Cart</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f8fafc;
+        margin: 0;
+        padding: 2rem 1rem;
+        color: #1f2937;
+      }
+      .wrap {
+        max-width: 800px;
+        margin: auto;
+      }
+      h1 {
+        color: #0f766e;
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .p {
+        background: #fff;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px #0001;
+        text-align: center;
+      }
+      .p h3 {
+        margin: 0.2rem 0;
+      }
+      .p span {
+        color: #6b7280;
+      }
+      button {
+        border: 0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .add {
+        margin-top: 0.6rem;
+        width: 100%;
+        padding: 0.6rem;
+        background: #0f766e;
+        color: #fff;
+      }
+      .add:hover {
+        background: #115e59;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px #0001;
+      }
+      th {
+        background: #0f766e;
+        color: #fff;
+      }
+      th,
+      td {
+        padding: 0.7rem;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .q button {
+        width: 28px;
+        height: 28px;
+        background: #e5e7eb;
+      }
+      .q button:hover {
+        background: #d1d5db;
+      }
+      .q b {
+        display: inline-block;
+        width: 28px;
+        text-align: center;
+      }
+      .rm {
+        background: #fee2e2;
+        color: #b91c1c;
+        padding: 0.4rem 0.7rem;
+      }
+      .rm:hover {
+        background: #fecaca;
+      }
+      #total {
+        text-align: right;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Shop</h1>
+      <div class="products" id="products"></div>
+      <h2>Your Cart</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cart"></tbody>
+      </table>
+      <div id="total">Grand Total: $0.00</div>
+    </div>
+    <script>
+      const items = [
+        { n: "Headphones", p: 59.99 },
+        { n: "Keyboard", p: 39.5 },
+        { n: "Mouse", p: 19.99 },
+        { n: "Webcam", p: 45 },
+      ];
+      const cart = document.getElementById("cart"),
+        box = document.getElementById("products");
+      items.forEach((i) => {
+        const d = document.createElement("div");
+        d.className = "p";
+        d.innerHTML = `<h3>${i.n}</h3><span>$${i.p.toFixed(2)}</span><button class="add">Add to cart</button>`;
+        d.querySelector("button").onclick = () => add(i);
+        box.appendChild(d);
+      });
+      function add(i) {
+        const ex = [...cart.rows].find((r) => r.dataset.n == i.n);
+        if (ex) {
+          ex.querySelector("b").textContent = +ex.querySelector("b").textContent + 1;
+          update();
+          return;
+        }
+        const r = cart.insertRow();
+        r.dataset.n = i.n;
+        r.dataset.p = i.p;
+        r.innerHTML = `<td>${i.n}</td><td>$${i.p.toFixed(2)}</td>
+  <td class="q"><button>-</button><b>1</b><button>+</button></td><td class="lt"></td><td><button class="rm">Remove</button></td>`;
+        const b = r.querySelectorAll(".q button"),
+          q = r.querySelector("b");
+        b[0].onclick = () => {
+          if (+q.textContent > 1) {
+            q.textContent--;
+            update();
+          }
+        };
+        b[1].onclick = () => {
+          q.textContent++;
+          update();
+        };
+        r.querySelector(".rm").onclick = () => {
+          r.remove();
+          update();
+        };
+        update();
+      }
+      function update() {
+        let g = 0;
+        [...cart.rows].forEach((r) => {
+          const t = r.dataset.p * r.querySelector("b").textContent;
+          r.querySelector(".lt").textContent = "$" + t.toFixed(2);
+          g += t;
+        });
+        document.getElementById("total").textContent = "Grand Total: $" + g.toFixed(2);
+      }
+    </script>
+  </body>
+</html>

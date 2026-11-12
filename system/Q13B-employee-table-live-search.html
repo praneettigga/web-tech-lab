@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q13B - Employee Search</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f1f5f9;
+        margin: 0;
+        padding: 2rem 1rem;
+        color: #1f2937;
+      }
+      .box {
+        max-width: 700px;
+        margin: auto;
+      }
+      h1 {
+        color: #0369a1;
+      }
+      input {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 10px;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+      input:focus {
+        outline: 2px solid #0ea5e9;
+        border-color: transparent;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px #0001;
+      }
+      th {
+        background: #0369a1;
+        color: #fff;
+      }
+      th,
+      td {
+        padding: 0.7rem;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      tbody tr:hover {
+        background: #e0f2fe;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Employee Directory</h1>
+      <input id="search" placeholder="Search by ID, name, department or designation..." />
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Designation</th>
+          </tr>
+        </thead>
+        <tbody id="tb">
+          <tr>
+            <td>101</td>
+            <td>Aarav Mehta</td>
+            <td>Engineering</td>
+            <td>Software Engineer</td>
+          </tr>
+          <tr>
+            <td>102</td>
+            <td>Diya Nair</td>
+            <td>Design</td>
+            <td>UX Designer</td>
+          </tr>
+          <tr>
+            <td>103</td>
+            <td>Rohan Gupta</td>
+            <td>Engineering</td>
+            <td>Tech Lead</td>
+          </tr>
+          <tr>
+            <td>104</td>
+            <td>Sara Khan</td>
+            <td>HR</td>
+            <td>HR Manager</td>
+          </tr>
+          <tr>
+            <td>105</td>
+            <td>Vikram Rao</td>
+            <td>Finance</td>
+            <td>Accountant</td>
+          </tr>
+          <tr>
+            <td>106</td>
+            <td>Neha Joshi</td>
+            <td>Marketing</td>
+            <td>Content Strategist</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      document.getElementById("search").addEventListener("keyup", (e) => {
+        const q = e.target.value.toLowerCase();
+        document
+          .querySelectorAll("#tb tr")
+          .forEach(
+            (r) => (r.style.display = r.textContent.toLowerCase().includes(q) ? "" : "none"),
+          );
+      });
+    </script>
+  </body>
+</html>

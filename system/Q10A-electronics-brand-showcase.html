@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q10A - Electronics Brand Showcase</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        background: #0f172a;
+        color: #e2e8f0;
+        line-height: 1.7;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        background: #020617;
+        padding: 0.8rem;
+        text-align: center;
+      }
+      nav a {
+        color: #38bdf8;
+        margin: 0 1rem;
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: #fff;
+      }
+      main {
+        max-width: 850px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 2.4rem;
+        margin-bottom: 0;
+      }
+      h2 {
+        color: #38bdf8;
+      }
+      h3 {
+        color: #94a3b8;
+      }
+      ul.imgs {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+      ul.imgs img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #1e293b;
+      }
+      th {
+        background: #0284c7;
+        color: #fff;
+      }
+      th,
+      td {
+        padding: 0.7rem;
+        border-bottom: 1px solid #334155;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#specs">Specs</a>
+    </nav>
+    <main>
+      <h1>NovaTech</h1>
+      <p>Technology that moves with you.</p>
+      <section id="about">
+        <h2>About the Brand</h2>
+        <h3>Our story</h3>
+        <p>
+          NovaTech designs phones, laptops and audio gear built around simplicity and performance.
+        </p>
+        <p>Every device is tested for durability and made with recycled materials.</p>
+      </section>
+      <section id="products">
+        <h2>Products</h2>
+        <h3>Gallery</h3>
+        <ul class="imgs">
+          <li><img src="https://picsum.photos/seed/phone/300/200" alt="Nova X phone" /></li>
+          <li><img src="https://picsum.photos/seed/laptop/300/200" alt="Nova Book laptop" /></li>
+          <li><img src="https://picsum.photos/seed/buds/300/200" alt="Nova Buds earphones" /></li>
+        </ul>
+      </section>
+      <section id="specs">
+        <h2>Compare Models</h2>
+        <table>
+          <tr>
+            <th>Spec</th>
+            <th>Nova X1</th>
+            <th>Nova X2 Pro</th>
+          </tr>
+          <tr>
+            <td>Display</td>
+            <td>6.1" OLED</td>
+            <td>6.7" OLED 120Hz</td>
+          </tr>
+          <tr>
+            <td>Battery</td>
+            <td>4000 mAh</td>
+            <td>5000 mAh</td>
+          </tr>
+          <tr>
+            <td>Camera</td>
+            <td>48 MP</td>
+            <td>108 MP</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>$499</td>
+            <td>$799</td>
+          </tr>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

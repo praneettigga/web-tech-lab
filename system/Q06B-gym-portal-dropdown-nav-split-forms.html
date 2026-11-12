@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q6B - Gym Membership Portal</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        background: #18181b;
+        color: #fafafa;
+      }
+      nav {
+        display: flex;
+        background: #09090b;
+        padding: 0 2rem;
+        align-items: center;
+      }
+      nav .logo {
+        font-weight: 800;
+        color: #f97316;
+        font-size: 1.3rem;
+        margin-right: auto;
+        padding: 1rem 0;
+      }
+      .item {
+        position: relative;
+      }
+      .item > a {
+        display: block;
+        padding: 1.1rem 1rem;
+        color: #d4d4d8;
+        text-decoration: none;
+      }
+      .item:hover > a {
+        color: #fff;
+      }
+      .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #27272a;
+        min-width: 160px;
+        border-radius: 0 0 8px 8px;
+      }
+      .item:hover .menu {
+        display: block;
+      }
+      .menu a {
+        display: block;
+        padding: 0.7rem 1rem;
+        color: #d4d4d8;
+        text-decoration: none;
+      }
+      .menu a:hover {
+        background: #f97316;
+        color: #fff;
+      }
+      .forms {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        max-width: 850px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+      }
+      form {
+        background: #27272a;
+        padding: 1.5rem;
+        border-radius: 14px;
+      }
+      h2 {
+        margin-top: 0;
+        color: #f97316;
+      }
+      input {
+        width: 100%;
+        padding: 0.7rem;
+        margin-bottom: 1rem;
+        border: 2px solid #3f3f46;
+        border-radius: 8px;
+        background: #18181b;
+        color: #fff;
+        font-size: 1rem;
+      }
+      input:focus {
+        outline: none;
+        border-color: #f97316;
+      }
+      button {
+        width: 100%;
+        padding: 0.8rem;
+        border: 0;
+        border-radius: 8px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        background: linear-gradient(90deg, #f97316, #ef4444);
+        transition: 0.2s;
+      }
+      button:hover {
+        filter: brightness(1.15);
+        transform: translateY(-2px);
+      }
+      @media (max-width: 700px) {
+        .forms {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <span class="logo">IRONFIT</span>
+      <div class="item"><a href="#">Home</a></div>
+      <div class="item">
+        <a href="#">Classes &#9662;</a>
+        <div class="menu">
+          <a href="#">Yoga</a>
+          <a href="#">Cardio</a>
+          <a href="#">Strength</a>
+        </div>
+      </div>
+      <div class="item">
+        <a href="#">Plans &#9662;</a>
+        <div class="menu">
+          <a href="#">Monthly</a>
+          <a href="#">Yearly</a>
+        </div>
+      </div>
+    </nav>
+    <div class="forms">
+      <form>
+        <h2>Sign In</h2>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button>Sign In</button>
+      </form>
+      <form>
+        <h2>Join Now</h2>
+        <input placeholder="Full name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button>Sign Up</button>
+      </form>
+    </div>
+    <script>
+      document.querySelectorAll("form").forEach((f) => (f.onsubmit = (e) => e.preventDefault()));
+    </script>
+  </body>
+</html>

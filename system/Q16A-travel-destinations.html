@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Destinations - Wanderly Travel</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        background: #f0f9ff;
+        color: #1f2937;
+        line-height: 1.6;
+      }
+      header {
+        background: #0369a1;
+        color: #fff;
+        padding: 1rem 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 1.4rem;
+      }
+      nav a {
+        color: #bae6fd;
+        margin-left: 1.2rem;
+        text-decoration: none;
+      }
+      nav a:hover,
+      nav a.on {
+        color: #fff;
+        border-bottom: 2px solid #fff;
+      }
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+      .card {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px #0001;
+      }
+      .card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+      .card div {
+        padding: 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px #0001;
+      }
+      th {
+        background: #0369a1;
+        color: #fff;
+      }
+      th,
+      td {
+        padding: 0.7rem;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .thumb {
+        display: flex;
+        gap: 1rem;
+        background: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 8px #0001;
+      }
+      .thumb img {
+        width: 140px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Wanderly Travel</h1>
+      <nav>
+        <a href="Q16A-travel-home.html">Home</a>
+        <a href="Q16A-travel-destinations.html" class="on">Destinations</a>
+        <a href="Q16A-travel-itinerary.html">Itinerary</a>
+        <a href="Q16A-travel-contact.html">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Destinations</h2>
+      <div class="thumb">
+        <img src="https://picsum.photos/seed/goa/280/200" alt="Goa" />
+        <div>
+          <h3>Goa</h3>
+          <p>Golden beaches, nightlife and seafood.</p>
+        </div>
+      </div>
+      <div class="thumb">
+        <img src="https://picsum.photos/seed/manali/280/200" alt="Manali" />
+        <div>
+          <h3>Manali</h3>
+          <p>Himalayan valleys and adventure sports.</p>
+        </div>
+      </div>
+      <div class="thumb">
+        <img src="https://picsum.photos/seed/jaipur/280/200" alt="Jaipur" />
+        <div>
+          <h3>Jaipur</h3>
+          <p>The Pink City with grand architecture.</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

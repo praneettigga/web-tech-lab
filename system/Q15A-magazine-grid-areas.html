@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q15A - Online Magazine Article</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Georgia, serif;
+        margin: 0;
+        background: #fafaf9;
+        color: #292524;
+        line-height: 1.7;
+      }
+      .page {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas: "header header" "main sidebar" "footer footer";
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      header {
+        grid-area: header;
+        background: #7c2d12;
+        color: #fff;
+        padding: 1.5rem;
+        border-radius: 10px;
+      }
+      header h1 {
+        margin: 0;
+      }
+      main {
+        grid-area: main;
+      }
+      aside {
+        grid-area: sidebar;
+        background: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px #0001;
+        align-self: start;
+      }
+      footer {
+        grid-area: footer;
+        text-align: center;
+        color: #78716c;
+        padding: 1rem;
+      }
+      main img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+      .video {
+        position: relative;
+        aspect-ratio: 16/9;
+        margin: 1rem 0;
+      }
+      .video iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 10px;
+      }
+      @media (max-width: 700px) {
+        .page {
+          grid-template-columns: 1fr;
+          grid-template-areas: "header" "main" "sidebar" "footer";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>The Quiet Revolution of Slow Travel</h1>
+        <p>By Maya Rao | 6 min read</p>
+      </header>
+      <main>
+        <img src="https://picsum.photos/seed/mag/800/400" alt="Mountain train" />
+        <p>
+          Travelling slowly is no longer a luxury but a choice. Trains, buses and long walks reveal
+          a country that flights simply skip.
+        </p>
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/aqz-KE-bpKQ"
+            allowfullscreen
+            title="Travel video"
+          ></iframe>
+        </div>
+        <p>
+          Travellers report spending less and remembering more, as every stop becomes part of the
+          story.
+        </p>
+      </main>
+      <aside>
+        <h3>Related</h3>
+        <ul>
+          <li>10 scenic rail routes</li>
+          <li>Packing light guide</li>
+          <li>Budget homestays</li>
+        </ul>
+      </aside>
+      <footer>&copy; 2026 Wander Magazine</footer>
+    </div>
+  </body>
+</html>

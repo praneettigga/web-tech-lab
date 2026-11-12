@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q17B - Post Composer</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: #0f172a;
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+      }
+      .box {
+        width: 100%;
+        max-width: 500px;
+        background: #1e293b;
+        padding: 1.5rem;
+        border-radius: 16px;
+        color: #e2e8f0;
+      }
+      h1 {
+        margin-top: 0;
+        font-size: 1.3rem;
+      }
+      textarea {
+        width: 100%;
+        height: 140px;
+        padding: 0.8rem;
+        border: 2px solid #334155;
+        border-radius: 10px;
+        background: #0f172a;
+        color: #fff;
+        font-size: 1rem;
+        font-family: inherit;
+        resize: none;
+      }
+      textarea:focus {
+        outline: none;
+        border-color: #38bdf8;
+      }
+      .bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.8rem;
+      }
+      #count {
+        color: #94a3b8;
+        font-variant-numeric: tabular-nums;
+      }
+      #count.over {
+        color: #ef4444;
+        font-weight: 700;
+      }
+      button {
+        padding: 0.6rem 1.5rem;
+        border: 0;
+        border-radius: 20px;
+        background: #0ea5e9;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      button:hover:not(:disabled) {
+        background: #0284c7;
+      }
+      button:disabled {
+        background: #475569;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>What's happening?</h1>
+      <textarea id="post" placeholder="Write your post..."></textarea>
+      <div class="bar">
+        <span id="count">280</span>
+        <button id="pub" disabled>Publish</button>
+      </div>
+    </div>
+    <script>
+      const post = document.getElementById("post"),
+        count = document.getElementById("count"),
+        pub = document.getElementById("pub"),
+        MAX = 280;
+      post.addEventListener("input", () => {
+        const left = MAX - post.value.length;
+        count.textContent = left;
+        count.classList.toggle("over", left < 0);
+        pub.disabled = left < 0 || post.value.trim() === "";
+      });
+      pub.onclick = () => {
+        alert("Published!");
+        post.value = "";
+        post.dispatchEvent(new Event("input"));
+      };
+    </script>
+  </body>
+</html>

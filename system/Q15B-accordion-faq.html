@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q15B - Accordion FAQ</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f1f5f9;
+        margin: 0;
+        padding: 2rem 1rem;
+        color: #1f2937;
+      }
+      .wrap {
+        max-width: 600px;
+        margin: auto;
+      }
+      h1 {
+        color: #4338ca;
+        text-align: center;
+      }
+      .item {
+        background: #fff;
+        border-radius: 10px;
+        margin-bottom: 0.8rem;
+        box-shadow: 0 2px 8px #0001;
+        overflow: hidden;
+      }
+      .q {
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.2rem;
+        border: 0;
+        background: none;
+        font-size: 1.05rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        color: #1e293b;
+      }
+      .q:hover {
+        background: #eef2ff;
+      }
+      .q::after {
+        content: "+";
+        transition: transform 0.3s;
+        font-size: 1.3rem;
+        color: #6366f1;
+      }
+      .item.open .q::after {
+        transform: rotate(45deg);
+      }
+      .a {
+        max-height: 0;
+        opacity: 0;
+        padding: 0 1.2rem;
+        transition:
+          max-height 0.4s ease,
+          opacity 0.4s ease,
+          padding 0.4s ease;
+        color: #475569;
+      }
+      .item.open .a {
+        opacity: 1;
+        padding: 0 1.2rem 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Frequently Asked Questions</h1>
+      <div class="item">
+        <button class="q">How do I reset my password?</button>
+        <div class="a">
+          Click "Forgot password" on the login page and follow the email instructions.
+        </div>
+      </div>
+      <div class="item">
+        <button class="q">Can I change my plan later?</button>
+        <div class="a">Yes, upgrade or downgrade anytime from the billing settings.</div>
+      </div>
+      <div class="item">
+        <button class="q">Do you offer refunds?</button>
+        <div class="a">We offer a full refund within 14 days of purchase.</div>
+      </div>
+      <div class="item">
+        <button class="q">How can I contact support?</button>
+        <div class="a">Email support@example.com or use live chat, available 24/7.</div>
+      </div>
+    </div>
+    <script>
+      const items = document.querySelectorAll(".item");
+      items.forEach((it) => {
+        it.querySelector(".q").onclick = () => {
+          const open = it.classList.contains("open");
+          items.forEach((o) => {
+            o.classList.remove("open");
+            o.querySelector(".a").style.maxHeight = 0;
+          });
+          if (!open) {
+            it.classList.add("open");
+            const a = it.querySelector(".a");
+            a.style.maxHeight = a.scrollHeight + "px";
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q6A - Freelancer Portfolio</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 100%;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        color: #1f2937;
+        background: #f9fafb;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        background: #111827;
+        color: #fff;
+        padding: 1rem 5vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      header a {
+        color: #d1d5db;
+        text-decoration: none;
+        margin-left: 1.2rem;
+      }
+      header a:hover {
+        color: #fff;
+      }
+      .hero {
+        text-align: center;
+        padding: 4rem 1rem;
+      }
+      .hero h1 {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+        margin: 0;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        color: #6b7280;
+      }
+      .btn {
+        display: inline-block;
+        padding: 0.8em 1.8em;
+        border-radius: 2em;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0.3em;
+        transition: 0.2s;
+      }
+      .primary {
+        background: #6366f1;
+        color: #fff;
+      }
+      .primary:hover {
+        background: #4f46e5;
+        transform: translateY(-2px);
+      }
+      .ghost {
+        border: 2px solid #6366f1;
+        color: #6366f1;
+      }
+      .ghost:hover {
+        background: #6366f1;
+        color: #fff;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: 1.2rem;
+        max-width: 62rem;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .gallery article {
+        background: #fff;
+        border-radius: 0.8rem;
+        overflow: hidden;
+        box-shadow: 0 4px 12px #0001;
+      }
+      .gallery img {
+        width: 100%;
+        height: 10rem;
+        object-fit: cover;
+        display: block;
+      }
+      .gallery div {
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong>Alex.dev</strong>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <h1>Hi, I'm Alex</h1>
+      <p>Freelance web developer building fast, beautiful sites.</p>
+      <a class="btn primary" href="#work">View Work</a>
+      <a class="btn ghost" href="#contact">Hire Me</a>
+    </section>
+    <section class="gallery" id="work">
+      <article>
+        <img src="https://picsum.photos/seed/p1/400/300" alt="" />
+        <div>
+          <h3>E-commerce Store</h3>
+          <p>React + Stripe</p>
+        </div>
+      </article>
+      <article>
+        <img src="https://picsum.photos/seed/p2/400/300" alt="" />
+        <div>
+          <h3>Travel Blog</h3>
+          <p>Static site generator</p>
+        </div>
+      </article>
+      <article>
+        <img src="https://picsum.photos/seed/p3/400/300" alt="" />
+        <div>
+          <h3>Fitness App</h3>
+          <p>PWA with offline mode</p>
+        </div>
+      </article>
+      <article>
+        <img src="https://picsum.photos/seed/p4/400/300" alt="" />
+        <div>
+          <h3>Dashboard UI</h3>
+          <p>Charts and analytics</p>
+        </div>
+      </article>
+      <article>
+        <img src="https://picsum.photos/seed/p5/400/300" alt="" />
+        <div>
+          <h3>Restaurant Site</h3>
+          <p>Online ordering</p>
+        </div>
+      </article>
+      <article>
+        <img src="https://picsum.photos/seed/p6/400/300" alt="" />
+        <div>
+          <h3>Portfolio Theme</h3>
+          <p>Open source</p>
+        </div>
+      </article>
+    </section>
+    <section class="hero" id="contact">
+      <h2>Let's work together</h2>
+      <a class="btn primary" href="mailto:alex@example.com">Email Me</a>
+    </section>
+  </body>
+</html>

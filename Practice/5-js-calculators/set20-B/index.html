@@ -5,17 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BMI Health Calculator</title>
   <style>
-    /* TODO: styles */
+    body { font-family: sans-serif; max-width: 500px; margin: 2rem auto; }
+    label { display: block; margin: .6rem 0; }
+    #result { margin-top: 1rem; padding: 1rem; border-radius: 6px; }
+    .underweight { background: lightblue; }
+    .normal { background: lightgreen; }
+    .overweight { background: orange; }
+    .obese { background: tomato; }
   </style>
 </head>
 <body>
-<!-- TODO: Inputs: height (cm), weight (kg) -->
-<!-- TODO: BMI = kg / (m*m) on button click -->
-<!-- TODO: Result shown in the DOM -->
-<!-- TODO: Result container background changes by category: Underweight, Normal, Overweight, Obese -->
+  <h1>BMI Calculator</h1>
+
+  <label>Height (cm) <input type="number" id="height" min="1"></label>
+  <label>Weight (kg) <input type="number" id="weight" min="1"></label>
+  <button id="calc">Calculate BMI</button>
+
+  <div id="result"></div>
 
   <script>
-    // TODO: logic
+    document.getElementById('calc').addEventListener('click', function () {
+      const cm = parseFloat(document.getElementById('height').value);
+      const kg = parseFloat(document.getElementById('weight').value);
+      const result = document.getElementById('result');
+
+      if (isNaN(cm) || isNaN(kg) || cm <= 0 || kg <= 0) {
+        result.className = '';
+        result.textContent = 'Enter a valid height and weight.';
+        return;
+      }
+
+      const m = cm / 100;
+      const bmi = kg / (m * m);
+
+      let category, cls;
+      if (bmi < 18.5) { category = 'Underweight'; cls = 'underweight'; }
+      else if (bmi < 25) { category = 'Normal'; cls = 'normal'; }
+      else if (bmi < 30) { category = 'Overweight'; cls = 'overweight'; }
+      else { category = 'Obese'; cls = 'obese'; }
+
+      result.className = cls;
+      result.textContent = 'BMI: ' + bmi.toFixed(1) + ' (' + category + ')';
+    });
   </script>
 </body>
 </html>

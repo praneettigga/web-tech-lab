@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Q20A - Course Registration</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        background: #eff6ff;
+        margin: 0;
+        padding: 2rem 1rem;
+      }
+      form {
+        max-width: 520px;
+        margin: auto;
+        background: #fff;
+        padding: 1.5rem 2rem;
+        border-radius: 14px;
+        box-shadow: 0 8px 24px #0002;
+      }
+      h1 {
+        margin-top: 0;
+        color: #1d4ed8;
+      }
+      label.t {
+        display: block;
+        margin: 0.8rem 0 0.2rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #374151;
+      }
+      input:not([type="checkbox"]),
+      select,
+      button {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.6rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+      input:focus,
+      select:focus {
+        outline: 2px solid #3b82f6;
+        border-color: transparent;
+      }
+      .agree {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        margin-top: 1rem;
+      }
+      button {
+        background: #2563eb;
+        color: #fff;
+        border: 0;
+        margin-top: 1.2rem;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      button:hover {
+        background: #1d4ed8;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h1>Course Registration</h1>
+      <label class="t">Student name</label>
+      <input required />
+      <label class="t">Student ID (e.g. CS2026001)</label>
+      <input required pattern="[A-Z]{2}[0-9]{7}" title="2 capital letters + 7 digits" />
+      <label class="t">Department</label>
+      <select required>
+        <option value="">-- Select --</option>
+        <option>Computer Science</option>
+        <option>Electronics</option>
+        <option>Mechanical</option>
+        <option>Civil</option>
+      </select>
+      <label class="t">Elective</label>
+      <input list="el" placeholder="Search electives" />
+      <datalist id="el">
+        <option>Machine Learning</option>
+        <option>Cloud Computing</option>
+        <option>Cyber Security</option>
+        <option>Data Mining</option>
+      </datalist>
+      <label class="t">Semester start</label>
+      <input type="date" required />
+      <label class="agree">
+        <input type="checkbox" required />
+        I agree to the university terms and conditions
+      </label>
+      <button>Register</button>
+    </form>
+  </body>
+</html>
